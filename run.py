@@ -33,3 +33,9 @@ def save_credentials(credentials):
   '''
   credentials.save_credentials()
   
+def delete_credential(user):
+  '''
+  Function delete ctredential
+  '''
+  user.delete_credential()
+  
