@@ -52,6 +52,20 @@ class TestUser (unittest.TestCase):
     self.assertTrue(user_exists)
 
 
+  # Credentials Tests
+class Testcredentials(unittest.TestCase):    
+  def setUp(self):
+    '''
+    credentials fixture
+    '''
+    self.new_credentials = Credentials("Twiter","richardkefa","rich2020")
+  def tearDown(self):
+    '''
+    Method to clean up new_credentials after every run
+    '''
+    Credentials.credentials_list=[]
+   
+ 
 
 if __name__ == "__main__":
     unittest.main()
