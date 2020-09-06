@@ -97,6 +97,19 @@ class Testcredentials(unittest.TestCase):
   #   credentials_exist = Credentials.credential_search("facebook")
   #   self.assertEqual(credentials_exist)
 
-  
+  def test_delete_credentials(self):
+    '''
+    test removing credentials from credential_list
+    '''
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("facebook","kefarichard","kefa2020")
+    test_credentials.save_credentials()
+    self.new_credentials.delete_credential()
+    self.assertEqual(len(Credentials.credentials_list),1)
+    
+  def test_display_all_credentials(self):
+    self.assertEqual(Credentials.display_credentials().Credentials.credentials_list)
+    
+
 if __name__ == "__main__":
     unittest.main()
