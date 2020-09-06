@@ -39,3 +39,14 @@ def delete_credential(user):
   '''
   user.delete_credential()
   
+def display_credentials():
+  '''
+  function that returns all saved credentials
+  '''
+  return Credentials.display_credentials()
+
+def copy_credentials():
+  '''
+  function to copy password
+  '''
+  return Credentials.copy_credentials()
