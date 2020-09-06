@@ -104,7 +104,17 @@ def main():
         print(f"{account} created succesfuly")
         print("\n")
         
-    
+      elif short_code == "dc":
+        if display_credentials():
+          print("Here is a list of all saved credntials")
+          print("\n")
+          for credentials in display_credentials():
+            print(f"{credentials.account} {credentials.account_username} {credentials.account_password}")
+            print("\n")
+          else:
+            print("\n")
+            print("You Have not saved any credential yet")
+            print("\n")
   
 if __name__ == "__main__":
   main()
