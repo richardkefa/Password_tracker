@@ -20,3 +20,16 @@ def user_exists(username,password):
   '''
   return User.user_exists(username,password)
 
+def create_credentials(account,account_username,account_password):
+  '''
+  function to create credential
+  '''
+  new_credentials = Credentials(account,account_username,account_password)
+  return new_credentials
+
+def save_credentials(credentials):
+  '''
+  function to save credentials
+  '''
+  credentials.save_credentials()
+  
