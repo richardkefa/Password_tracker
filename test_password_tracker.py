@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from password_trucker import User  # importing user class
 from password_trucker import Credentials # importing credentials class
 
@@ -108,7 +109,15 @@ class Testcredentials(unittest.TestCase):
     self.assertEqual(len(Credentials.credentials_list),1)
     
   def test_display_all_credentials(self):
-    self.assertEqual(Credentials.display_credentials().Credentials.credentials_list)
+    self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+    
+  def test_copy_credentials(self):
+    '''
+    method will copy the credential to clipboard
+    '''
+    self.new_credentials.save_credentials()
+    Credentials.copy_credentials("Twiter")
+    self.assertEqual(self.new_credentials.account_password,pyperclip.paste())
     
 
 if __name__ == "__main__":

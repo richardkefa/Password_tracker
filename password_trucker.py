@@ -1,3 +1,5 @@
+import pyperclip
+
 class User:
   '''
   User login info class 
@@ -36,12 +38,20 @@ class Credentials:
     self.account_username = account_username
     
   credentials_list = []
-  
+
   def save_credentials(self):
     '''
     saves credential object to credential list
     '''
     Credentials.credentials_list.append(self)
+    
+  
+  def delete_credential(self):
+    '''
+    delete_credential method deletes saved credential from the credentials_list
+    '''
+    Credentials.credentials_list.remove(self)
+    
   @classmethod
   def credential_search(cls,account):
     '''
@@ -55,16 +65,16 @@ class Credentials:
     for credentials in cls.credentials_list:
       if credentials.account == account:
         return credentials
-  @classmethod
-  def delete_credential(self):
-    '''
-    delete_credential method deletes saved credential from the credentials_list
-    '''
-    Credentials.credentials_list.remove(self)
+
     
   @classmethod
   def display_credentials(cls):
     return cls.credentials_list
+  
+  @classmethod
+  def copy_credentials(cls,account):
+    credentials_found = Credentials.credential_search(account)
+    pyperclip.copy(credentials_found.account_password)
 
     
     
