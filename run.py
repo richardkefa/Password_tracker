@@ -80,7 +80,31 @@ def main():
   else:
     print("Enter correct username and password")
     
-   
+    while True:
+      print("User these short codes: cc - create new credentials, dc - Display contacts, dlc - Delete a credential, cp - copy credential password")
+    
+      short_code = input().lower()
+    
+      if short_code == 'cc':
+        print("New Credential")
+        print("-"*20)
+        
+        print("Enter account")
+        account = input()
+        
+        print("Enter account username")
+        account_username = input()
+        
+        print("Enter account password")
+        account_password = input()
+        
+        #Creating and saving credentials
+        save_credentials(create_credentials(account,account_username,account_password))
+        print("\n")
+        print(f"{account} created succesfuly")
+        print("\n")
+        
+    
   
 if __name__ == "__main__":
   main()
