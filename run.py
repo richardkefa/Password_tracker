@@ -50,3 +50,19 @@ def copy_credentials():
   function to copy password
   '''
   return Credentials.copy_credentials()
+
+
+def main():
+  print("Hello welcome to the pasword tracker.Enter username and password to create account")
+  
+  print("Enter username")
+  username = input()
+  
+  print("Enter passsword")
+  password = input()
+  
+  #creating and saving user
+  save_user(create_user(username,password))
+  print("\n")
+  print(f"{username} created account succesfuly")
+  print("\n")
