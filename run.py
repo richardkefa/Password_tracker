@@ -66,3 +66,21 @@ def main():
   print("\n")
   print(f"{username} created account succesfuly")
   print("\n")
+  
+  print("Enter username and credentials to log in")
+  print("Enter username")
+  username = input()
+  
+  print("Enter Password")
+  password = input()
+  
+  if user_exists(username,password):
+    print(f"{username} you have loged in successfuly")
+    print("-"*20)
+  else:
+    print("Enter correct username and password")
+    
+   
+  
+if __name__ == "__main__":
+  main()
