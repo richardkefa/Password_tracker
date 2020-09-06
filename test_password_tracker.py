@@ -74,6 +74,13 @@ class Testcredentials(unittest.TestCase):
     self.assertEqual(self.new_credentials.account_password,"rich2020")
     
     
+  def test_credential_save(self):
+    '''
+    Testing saving of new credential object
+    '''
+    self.new_credentials.save_credentials()
+    self.assertEqual(len(Credentials.credentials_list),1)
+    
   
 if __name__ == "__main__":
     unittest.main()
