@@ -81,6 +81,16 @@ class Testcredentials(unittest.TestCase):
     self.new_credentials.save_credentials()
     self.assertEqual(len(Credentials.credentials_list),1)
     
+  def test_save_multiple_credentials(self):
+    '''
+    test saving multiple credentials
+    '''
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("facebook","kefarichard","kefa2020")
+    test_credentials.save_credentials()
+    self.assertEqual(len(Credentials.credentials_list),2)
+    
   
+
 if __name__ == "__main__":
     unittest.main()
