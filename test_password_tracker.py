@@ -91,12 +91,12 @@ class Testcredentials(unittest.TestCase):
     test_credentials.save_credentials()
     self.assertEqual(len(Credentials.credentials_list),2)
     
-  # def test_search_credential(self):
-  #   self.new_credentials.save_credentials()
-  #   test_credentials = Credentials("facebook","kefarichard","kefa2020")
-  #   test_credentials.save_credentials()
-  #   credentials_exist = Credentials.credential_search("facebook")
-  #   self.assertEqual(credentials_exist)
+  def test_search_credential(self):
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("facebook","kefarichard","kefa2020")
+    test_credentials.save_credentials()
+    credentials_exist = Credentials.credential_search("facebook")
+    self.assertEqual(credentials_exist.account,test_credentials.account)
 
   def test_delete_credentials(self):
     '''

@@ -32,12 +32,18 @@ def save_credentials(credentials):
   function to save credentials
   '''
   credentials.save_credentials()
+
+def search_credentials(account):
+  '''
+  function to serch through credentials
+  '''
+  return Credentials.credential_search(account)
   
-def delete_credential(user):
+def delete_credential(account):
   '''
   Function delete ctredential
   '''
-  user.delete_credential()
+  return Credentials.delete_credential(account)
   
 def display_credentials():
   '''
@@ -45,11 +51,18 @@ def display_credentials():
   '''
   return Credentials.display_credentials()
 
-def copy_credentials():
+def copy_credentials(account):
   '''
   function to copy password
   '''
   return Credentials.copy_credentials(account)
+
+filename = "MOCK_passwords.csv"
+def open_file(filename):
+  with open(filename,'r') as suggested_password:
+    for 
+    password = suggested_password.readline()
+    return password
 
 
 def main():
@@ -76,19 +89,30 @@ def main():
   
   if user_exists(username,password):
     print(f"{username} you have loged in successfuly")
-    print("-"*20)
+    print("-"*100)
+    login_test=user_exists(username,password)
   else:
-    print("Enter correct username and password")
-    print("\n")
-  
-  while True:
+    while user_exists(username,password)==False:
+      print("="*200)
+      print("Enter correct username and password")
+      print("\n")
+      print("Enter username")
+      username = input()
+      print("Enter Password")
+      password = input()
+      login_test=user_exists(username,password)
+      
+    
+  while login_test == True:
+      print("Logged in")
+      print("\n")
       print("User these short codes: cc - create new credentials, dc - Display credentials, dlc - Delete a credential, cp - copy credential password, ex - Exit app")
     
       short_code = input().lower()
     
       if short_code == 'cc':
         print("New Credential")
-        print("-"*20)
+        print("="*100)
         
         print("Enter account")
         account = input()
@@ -96,7 +120,7 @@ def main():
         print("Enter account username")
         account_username = input()
         
-        print("Enter account password")
+        print(f"Enter account password Suggested password: {open_file(filename)}")
         account_password = input()
         
         #Creating and saving credentials
@@ -120,26 +144,34 @@ def main():
       elif short_code == "dlc":
         print("Enter account to delete")
         delete_account = input()
-        
-        print("\n")
-        print(f"Are you sure you want to delete {delete_account} Enter Y to accept and N to cancel")
-        confirm = input().lower()
-        if confirm == "y":
-          delete_credential(delete_account)
-          print(f"{delete_account} deleted successfuly")
-        elif confirm == "n":
-          print("Delete action canceled")
-          break
+        if search_credentials(delete_account):
+          print("\n")
+          print(f"Are you sure you want to delete {delete_account} Enter Y to accept and N to cancel")
+          confirm = input().lower()
+          if confirm == "y":
+            to_delete = search_credentials(delete_account)
+            to_delete.delete_credential()
+            print(f"{delete_account} deleted successfuly")
+          elif confirm == "n":
+           print("Delete action canceled")
+           break
+          else:
+            print("Use correct letter")
         else:
-          print("Use correct letter")
+          print("Credential you wish to delete does not exist")
           
       elif short_code == "cp":
         print("Enter account to copy passsword from")
         copy_account_password = input()
-        copy_credentials(copy_account_password)
-        print("\n")
-        print("Pasword copied succefuly")
-        
+        if search_credentials(copy_account_password):
+          copy_credentials(copy_account_password)
+          print("\n")
+          print("Pasword copied succefuly")
+          print("="*200)
+          
+        else:
+          print("Entered acoount does not exist")
+
       elif short_code == "ex":
         print("\n")
         print("Bye......")
