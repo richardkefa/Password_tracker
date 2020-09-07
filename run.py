@@ -140,7 +140,12 @@ def main():
         print("\n")
         print("Pasword copied succefuly")
         
-     
+      elif short_code == "ex":
+        print("\n")
+        print("Bye......")
+        break
+      else:
+        print("Please use correct short code")
   
 if __name__ == "__main__":
   main()
