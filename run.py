@@ -116,6 +116,24 @@ def main():
           print("\n")
           print("You Have not saved any credential yet")
           print("\n")
+            
+      elif short_code == "dlc":
+        print("Enter account to delete")
+        delete_account = input()
+        
+        print("\n")
+        print(f"Are you sure you want to delete {delete_account} Enter Y to accept and N to cancel")
+        confirm = input().lower()
+        if confirm == "y":
+          delete_credential(delete_account)
+          print(f"{delete_account} deleted successfuly")
+        elif confirm == "n":
+          print("Delete action canceled")
+          break
+        else:
+          print("Use correct letter")
+          
+     
     
     
   
