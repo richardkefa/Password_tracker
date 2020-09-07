@@ -60,7 +60,6 @@ def copy_credentials(account):
 filename = "MOCK_passwords.csv"
 def open_file(filename):
   with open(filename,'r') as suggested_password:
-    for 
     password = suggested_password.readline()
     return password
 
@@ -93,19 +92,20 @@ def main():
     login_test=user_exists(username,password)
   else:
     while user_exists(username,password)==False:
-      print("="*200)
+      print("="*150)
       print("Enter correct username and password")
       print("\n")
       print("Enter username")
       username = input()
       print("Enter Password")
       password = input()
+      print("="*150)
       login_test=user_exists(username,password)
       
     
   while login_test == True:
       print("Logged in")
-      print("\n")
+      print("="*30)
       print("User these short codes: cc - create new credentials, dc - Display credentials, dlc - Delete a credential, cp - copy credential password, ex - Exit app")
     
       short_code = input().lower()
@@ -161,13 +161,13 @@ def main():
           print("Credential you wish to delete does not exist")
           
       elif short_code == "cp":
-        print("Enter account to copy passsword from")
+        print("Enter account to copy password from")
         copy_account_password = input()
         if search_credentials(copy_account_password):
           copy_credentials(copy_account_password)
           print("\n")
           print("Pasword copied succefuly")
-          print("="*200)
+          print("="*150)
           
         else:
           print("Entered acoount does not exist")
