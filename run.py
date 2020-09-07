@@ -49,7 +49,7 @@ def copy_credentials():
   '''
   function to copy password
   '''
-  return Credentials.copy_credentials()
+  return Credentials.copy_credentials(account)
 
 
 def main():
@@ -79,9 +79,10 @@ def main():
     print("-"*20)
   else:
     print("Enter correct username and password")
-    
-    while True:
-      print("User these short codes: cc - create new credentials, dc - Display contacts, dlc - Delete a credential, cp - copy credential password")
+    print("\n")
+  
+  while True:
+      print("User these short codes: cc - create new credentials, dc - Display credentials, dlc - Delete a credential, cp - copy credential password, ex - Exit app")
     
       short_code = input().lower()
     
@@ -111,10 +112,12 @@ def main():
           for credentials in display_credentials():
             print(f"{credentials.account} {credentials.account_username} {credentials.account_password}")
             print("\n")
-          else:
-            print("\n")
-            print("You Have not saved any credential yet")
-            print("\n")
+        else:
+          print("\n")
+          print("You Have not saved any credential yet")
+          print("\n")
+    
+    
   
 if __name__ == "__main__":
   main()
