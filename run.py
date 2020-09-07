@@ -133,9 +133,14 @@ def main():
         else:
           print("Use correct letter")
           
+      elif short_code == "cp":
+        print("Enter account to copy passsword from")
+        copy_account_password = input()
+        copy_credentials(copy_account_password)
+        print("\n")
+        print("Pasword copied succefuly")
+        
      
-    
-    
   
 if __name__ == "__main__":
   main()
