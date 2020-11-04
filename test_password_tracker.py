@@ -35,16 +35,6 @@ class TestUser (unittest.TestCase):
     '''
     User.user_list=[]
     
-  # def test_login(self):
-  #   '''
-  #   testing validity of user credentials
-  #   '''
-  #   self.new_user.save_user()
-  #   test_user = User("kefa","12345")
-  #   test_user.save_user()
-  #   login_info = User.user_login("kefa","12345")
-  #   self.assertTrue(login_info)
-    
   def test_login_exists(self):
     self.new_user.save_user()
     test_user = User("kefa","12345")
